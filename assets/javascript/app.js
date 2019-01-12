@@ -32,6 +32,20 @@ $("#find-recipe").on("click", function (event) {
 		url: queryURL,
 		method: "GET"
 	}).then(function (response) {
-		$("#recipe-view").text(JSON.stringify(response));
-	});
+		console.log(response.hits)
+		console.log(response.hits[0].recipe.image)
+		console.log(response.hits[0].recipe.label)
+		console.log(response.hits[0].recipe.url)
+
+
+		var foodImage = $("<img>");
+		  foodImage.addClass("image");
+		  foodImage.attr("src", response.hits[0].recipe.image);
+		  foodImage.attr("width", "300px")
+		  $("#image").html(foodImage);
+
+		  $("#dishName").html(response.hits[0].recipe.label)
+		  $("#prep").html("Time: " + response.hits[0].recipe.totalTime + " minutes")
+		  $("#link").html(response.hits[0].recipe.url)
+  });
 });

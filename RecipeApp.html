@@ -9,16 +9,16 @@
 
 <body>
   <div class="container">
-	<h1>Recipe search</h1>
-	
-	<form id="ingredients-form">
-		<label for="ingredient-input">Add ingredient</label>
-		<input type="text" id="ingredient-input"><br>
-  
-		<!-- This button will trigger our AJAX call -->
-		<input id="find-ingredient" type="submit" value="Ingredient Search">
-  
-	</form>
+    <h1>Recipe search</h1>
+
+    <form id="ingredients-form">
+      <label for="ingredient-input">Add ingredient</label>
+      <input type="text" id="ingredient-input"><br>
+
+      <!-- This button will trigger our AJAX call -->
+      <input id="find-ingredient" type="submit" value="Ingredient Search">
+
+    </form>
 
 
     <!-- This form will be where users input data about the recipes -->
@@ -31,13 +31,19 @@
     </form>
 
     <!-- We'll be dumping our JSON contents in here -->
-    <div id="recipe-view"></div>
+    <div id="recipe-view">
+      <br>
+      <div  id="image"></div><br>
+      <span id="dishName"></span><br>
+      <span id="prep"></span><br>
+      <span id="link"></span>
+    </div>
 
-	<!-- jquery -->
+    <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!-- Script -->
-	<script type="text/javascript" src="assets/javascript/app.js"></script>
-	
+    <!-- Script -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
   </div>
 </body>
 
