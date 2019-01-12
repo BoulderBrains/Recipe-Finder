@@ -2,49 +2,49 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Recipe App</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+	<meta charset="utf-8">
+	<title>Recipe App</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
 </head>
 
 <body>
-  <div class="container">
-    <h1>Recipe search</h1>
+	<div class="container">
+		<h1>Recipe search</h1>
 
-    <form id="ingredients-form">
-      <label for="ingredient-input">Add ingredient</label>
-      <input type="text" id="ingredient-input"><br>
+		<form id="ingredients-form">
+			<label for="ingredient-input">Add ingredient</label>
+			<input type="text" id="ingredient-input"><br>
 
-      <!-- This button will trigger our AJAX call -->
-      <input id="find-ingredient" type="submit" value="Ingredient Search">
+			<!-- This button will trigger our AJAX call -->
+			<input id="find-ingredient" type="submit" value="Ingredient Search">
 
-    </form>
+		</form>
 
 
-    <!-- This form will be where users input data about the recipes -->
-    <form id="recipe-form">
-      <label for="recipe-input">Search for a recipe</label>
-      <input type="text" id="recipe-input"><br>
+		<!-- This form will be where users input data about the recipes -->
+		<form id="recipe-form">
+			<label for="recipe-input">Search for a recipe</label>
+			<input type="text" id="recipe-input"><br>
 
-      <!-- This button will trigger our AJAX call -->
-      <input id="find-recipe" type="submit" value="Recipe Search">
-    </form>
+			<!-- This button will trigger our AJAX call -->
+			<input id="find-recipe" type="submit" value="Recipe Search">
+		</form>
 
-    <!-- We'll be dumping our JSON contents in here -->
-    <div id="recipe-view">
-      <br>
-      <div  id="image"></div><br>
-      <span id="dishName"></span><br>
-      <span id="prep"></span><br>
-      <span id="link"></span>
-    </div>
+		<!-- We'll be dumping our JSON contents in here -->
+		<div id="recipe-view">
+			<br>
+			<div id="image"></div><br>
+			<span id="dishName"></span><br>
+			<span id="prep"></span><br>
+			<span id="link"></span>
+		</div>
 
-    <!-- jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Script -->
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+		<!-- Jquery -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- Script -->
+		<script type="text/javascript" src="assets/javascript/app.js"></script>
 
-  </div>
+	</div>
 </body>
 
 </html>
