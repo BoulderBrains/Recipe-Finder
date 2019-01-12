@@ -1,3 +1,18 @@
+var ingredients = [];
+
+$("#find-ingredient").on("click", function (event) {
+	event.preventDefault();
+	// create variable for ingredients input #ingredient-input
+	var ingredient = $('#ingredient-input').val();
+	console.log("ingredient: " + ingredient);
+	// add value from input to ingredients array
+	ingredients.push(ingredient);
+
+	console.log(ingredients);
+});
+
+
+
 // This .on("click") function will trigger the AJAX Call
 $("#find-recipe").on("click", function (event) {
 
@@ -20,15 +35,3 @@ $("#find-recipe").on("click", function (event) {
 		$("#recipe-view").text(JSON.stringify(response));
 	});
 });
-
-var ingredients = [];
-
-function AddToIngredients() {
-	// create variable for ingredients input #ingredient-input
-	var ingredient = $('#ingredient-input').val();
-	console.log("ingredient: " + ingredient);
-	// add value from input to ingredients array
-	ingredients.push(ingredient);
-
-	console.log(ingredients);
-}
