@@ -24,7 +24,6 @@ $("#find-recipe").on("click", function (event) {
 var ingredients = [];
 
 function AddToIngredients() {
-	// var ingredients = [];
 	// create variable for ingredients input #ingredient-input
 	var ingredient = $('#ingredient-input').val();
 	console.log("ingredient: " + ingredient);
