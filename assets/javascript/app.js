@@ -39,13 +39,13 @@ $("#find-recipe").on("click", function (event) {
 
 
 		var foodImage = $("<img>");
-		  foodImage.addClass("image");
-		  foodImage.attr("src", response.hits[0].recipe.image);
-		  foodImage.attr("width", "300px")
-		  $("#image").html(foodImage);
+		foodImage.addClass("image");
+		foodImage.attr("src", response.hits[0].recipe.image);
+		foodImage.attr("width", "300px")
+		$("#image").html(foodImage);
 
-		  $("#dishName").html(response.hits[0].recipe.label)
-		  $("#prep").html("Time: " + response.hits[0].recipe.totalTime + " minutes")
-		  $("#link").html(response.hits[0].recipe.url)
-  });
+		$("#dishName").html(response.hits[0].recipe.label)
+		$("#prep").html("Time: " + response.hits[0].recipe.totalTime + " minutes")
+		$("#link").html(response.hits[0].recipe.url)
+	});
 });
