@@ -9,7 +9,16 @@
 
 <body>
   <div class="container">
-    <h1>Recipe search</h1>
+	<h1>Recipe search</h1>
+	
+	<form id="ingredients-form">
+		<label for="ingredient-input">Add ingredient</label>
+		<input type="text" id="ingredient-input"><br>
+  
+		<!-- This button will trigger our AJAX call -->
+		<input id="find-ingredient" type="submit" value="Ingredient Search">
+	  </form>
+
 
     <!-- This form will be where users input data about the recipes -->
     <form id="recipe-form">
