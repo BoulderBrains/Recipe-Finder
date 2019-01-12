@@ -16,7 +16,7 @@
 		<input type="text" id="ingredient-input"><br>
   
 		<!-- This button will trigger our AJAX call -->
-		<input id="find-ingredient" type="submit" value="Ingredient Search">
+		<input id="find-ingredient" onclick="AddToIngredients();" type="submit" value="Ingredient Search">
 	  </form>
 
 
@@ -32,39 +32,13 @@
     <!-- We'll be dumping our JSON contents in here -->
     <div id="recipe-view"></div>
 
+	
+	
+	<!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      // This .on("click") function will trigger the AJAX Call
-      $("#find-recipe").on("click", function(event) {
-
-        // event.preventDefault() can be used to prevent an event's default behavior.
-        // Here, it prevents the submit button from trying to submit a form when clicked
-        event.preventDefault();
-
-        // Here we grab the text from the input box
-        var recipe = $("#recipe-input").val();
-
-        // Here we construct our URL
-        // var queryURL = "https://api.edamam.com/search" + recipe + "&y=&plot=short&api_key=ff6536114baba9fa9737d7daa7776171";
-
-		var queryURL = "https://api.edamam.com/search?q=" + recipe + "&app_id=3d68d15b&app_key=ff6536114baba9fa9737d7daa7776171&from=0&to=1";
-        
-		// Write code between the dashes below to hit the queryURL with $ajax, then take the response data
-        // and display it in the div with an id of recipe-view
-
-        // ------YOUR CODE GOES IN THESE DASHES. DO NOT MANUALLY EDIT THE HTML ABOVE.
-
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function(response) {
-          $("#recipe-view").text(JSON.stringify(response));
-        });
-
-        // -----------------------------------------------------------------------
-
-      });
-    </script>
+	<!-- Script -->
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
+	
   </div>
 </body>
 
