@@ -13,9 +13,6 @@ $("#find-recipe").on("click", function (event) {
 
 	// Write code between the dashes below to hit the queryURL with $ajax, then take the response data
 	// and display it in the div with an id of recipe-view
-
-	// ------YOUR CODE GOES IN THESE DASHES. DO NOT MANUALLY EDIT THE HTML ABOVE.
-
 	$.ajax({
 		url: queryURL,
 		method: "GET"
@@ -27,10 +24,12 @@ $("#find-recipe").on("click", function (event) {
 var ingredients = [];
 
 function AddToIngredients() {
-	console.log("add to ingredients() triggered");
+	// var ingredients = [];
 	// create variable for ingredients input #ingredient-input
-	var ingredient = $('#ingredient-input').value();
-	// on click of #find-ingredient, add value from input to ingredients array
-	$('#find-ingredient').on('click', ingredients.push(ingredient));
+	var ingredient = $('#ingredient-input').val();
+	console.log("ingredient: " + ingredient);
+	// add value from input to ingredients array
+	ingredients.push(ingredient);
+
 	console.log(ingredients);
 }
