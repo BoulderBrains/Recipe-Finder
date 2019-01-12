@@ -7,6 +7,8 @@ $("#find-ingredient").on("click", function (event) {
 	console.log("ingredient: " + ingredient);
 	// add value from input to ingredients array
 	ingredients.push(ingredient);
+	// print out ingredients array after ingredient is added to it. 
+	$('.ingredients-list').append(ingredient + ", ");
 
 	console.log(ingredients);
 });
@@ -20,8 +22,8 @@ $("#find-recipe").on("click", function (event) {
 	// Here, it prevents the submit button from trying to submit a form when clicked
 	event.preventDefault();
 
-	// Here we grab the text from the input box
-	var recipe = $("#recipe-input").val();
+	// Here we grab the ingredients from the ingredients array
+	var recipe = ingredients;
 
 	// Here we construct our URL
 	var queryURL = "https://api.edamam.com/search?q=" + recipe + "&app_id=3d68d15b&app_key=ff6536114baba9fa9737d7daa7776171&from=0&to=1";
