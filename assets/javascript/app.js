@@ -1,3 +1,4 @@
+
 var ingredients = [];
 
 $("#find-ingredient").on("click", function (event) {
@@ -33,36 +34,38 @@ $("#find-recipe").on("click", function (event) {
 	}).then(function (response) {
 	
 		for (var i = 0; i < response.hits.length; i++){
-			console.log(response.hits[i].recipe.image)
-			console.log(response.hits[i].recipe.label)
-			console.log(response.hits[i].recipe.url)
+			console.log(response.hits[i].recipe.image);
+			console.log(response.hits[i].recipe.label);
+			console.log(response.hits[i].recipe.url);
 
-			// var recipe1 = response.hits[0].recipe
-			// var receipe2 = response.hits[1].recipe
-			// var recipe3 = response.hits[2].recipe
+
 			var recipeDiv = $("<div class='col-lg-4 col-sm-6'>");
 
-			var title = response.hits[i].recipe.label
-			var time = "Total time: " + response.hits[i].recipe.totalTime + " minutes"
-			var image = response.hits[i].recipe.image
+			var title = response.hits[i].recipe.label;
+			var time = "Total time: " + response.hits[i].recipe.totalTime + " minutes";
+			var image = response.hits[i].recipe.image;
+			var urlLink = response.hits[i].recipe.url;
+
 			//click image brings you to recipe site
-			var urlLink = response.hits[i].recipe.url
 			var foodImage = $("<img>");
 			foodImage.addClass("image");
 			foodImage.attr("src", image);
-			foodImage.attr("width", "300px")
+			foodImage.attr("width", "300px");
 			$(".image").html(foodImage);
+
 			//when image licked on, recipe site loads
 			$(".image").on("click", function(){
 				$(".image").wrap($("<a>").attr("href", urlLink));
 			  });
+
 			//creating recipe title and time to cook
 			var titleP = $("<p>").text(title);
-			var timeP = $("<p>").text(time)
-			//appending to scrren
-			recipeDiv.append(foodImage, titleP, timeP)
+			var timeP = $("<p>").text(time);
 
-			$("#recipe-view").prepend(recipeDiv)
+			//appending to screen
+			recipeDiv.append(foodImage, titleP, timeP);
+
+			$("#recipe-view").append(recipeDiv);
 		}
 	});
 });
