@@ -46,18 +46,18 @@ $("#find-recipe").on("click", function (event) {
 			var image = response.hits[i].recipe.image;
 			var urlLink = response.hits[i].recipe.url;
 
-			//click image brings you to recipe site
+			//creating an image tag for the recipe picture
 			var foodImage = $("<img>");
 			foodImage.addClass("image");
 			foodImage.attr("src", image);
 			foodImage.attr("width", "300px");
 			
-			//creating recipe title and time to cook
+			//variables that hold the picture, title and time to cook
 			var recipePicture = $("<a>").html(foodImage).attr("href", urlLink);
 			var recipeTitle = $("<p>").text(title);
 			var recipeTime = $("<p>").text(time);
 			
-			//appending to screen
+			//appending the picture, title and time to browser
 			recipeDiv.append(recipePicture, recipeTitle, recipeTime);
 			$("#recipe-view").append(recipeDiv);
 		}
