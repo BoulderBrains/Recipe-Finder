@@ -51,20 +51,14 @@ $("#find-recipe").on("click", function (event) {
 			foodImage.addClass("image");
 			foodImage.attr("src", image);
 			foodImage.attr("width", "300px");
-			$(".image").html(foodImage);
-
-			//when image licked on, recipe site loads
-			$(".image").on("click", function(){
-				$(".image").wrap($("<a>").attr("href", urlLink));
-			  });
-
+			
 			//creating recipe title and time to cook
-			var titleP = $("<p>").text(title);
-			var timeP = $("<p>").text(time);
-
+			var recipePicture = $("<a>").html(foodImage).attr("href", urlLink);
+			var recipeTitle = $("<p>").text(title);
+			var recipeTime = $("<p>").text(time);
+			
 			//appending to screen
-			recipeDiv.append(foodImage, titleP, timeP);
-
+			recipeDiv.append(recipePicture, recipeTitle, recipeTime);
 			$("#recipe-view").append(recipeDiv);
 		}
 	});
