@@ -4,20 +4,24 @@
 <head>
 	<meta charset="utf-8">
 	<title>Recipe App</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+	<!-- google fonts link -->
+	<link href="https://fonts.googleapis.com/css?family=Metrophobic|Permanent+Marker" rel="stylesheet">
 </head>
 
 <body>
 	<div class="container">
-		<h1>Recipe search</h1>
+		<h1 class="text-center title">Recipe search</h1>
 
 		<form id="ingredients-form">
-			<label for="ingredient-input">Add ingredient</label>
-			<input type="text" id="ingredient-input"><br>
-
-			<!-- This button will trigger our AJAX call -->
-			<input id="find-ingredient" type="submit" value="Ingredient Search">
-
+			<div class="input-group mb-3">
+				<input id="ingredient-input" class="form-control" type="text" placeholder="What ingredients do you have?" aria-label="" aria-describedby="basic-addon1">
+				<div class="input-group-prepend">
+				  <button id="find-ingredient" class="btn btn-outline-secondary" type="button">Add Ingredient</button>
+				</div>
+			  </div>
 		</form>
 
 		<div>Ingredients list: 
@@ -28,7 +32,7 @@
 		<form id="recipe-form">
 			<label for="recipe-input">Search for a recipe</label><br>
 			<!-- This button will trigger our AJAX call -->
-			<input id="find-recipe" type="submit" value="Recipe Search">
+			<input id="find-recipe" class="btn btn-light type="submit" value="Recipe Search">
 		</form>
 
 		<!-- We'll be dumping our JSON contents in here -->
