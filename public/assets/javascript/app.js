@@ -14,7 +14,7 @@ $("#find-ingredient").on("click", function (event) {
 });
 
 // This .on("click") function will trigger the AJAX Call
-$("#find-recipe").on("click", function (event) {
+$("#find-recipe").one("click", function (event) {
 
 	// event.preventDefault() can be used to prevent an event's default behavior.
 	// Here, it prevents the submit button from trying to submit a form when clicked
@@ -34,6 +34,7 @@ $("#find-recipe").on("click", function (event) {
 	}).then(function (response) {
 	
 		for (var i = 0; i < response.hits.length; i++){
+			console.log(response)
 			console.log(response.hits[i].recipe.image);
 			console.log(response.hits[i].recipe.label);
 			console.log(response.hits[i].recipe.url);
@@ -42,7 +43,7 @@ $("#find-recipe").on("click", function (event) {
 			var recipeDiv = $("<div class='col-lg-4 col-sm-6'>");
 
 			var title = response.hits[i].recipe.label;
-			var time = "Total time: " + response.hits[i].recipe.totalTime + " minutes";
+			// var time = "Total time: " + response.hits[i].recipe.totalTime + " minutes";
 			var image = response.hits[i].recipe.image;
 			var urlLink = response.hits[i].recipe.url;
 
@@ -55,10 +56,10 @@ $("#find-recipe").on("click", function (event) {
 			//variables that hold the picture, title and time to cook
 			var recipePicture = $("<a>").html(foodImage).attr("href", urlLink);
 			var recipeTitle = $("<p>").text(title);
-			var recipeTime = $("<p>").text(time);
+			// var recipeTime = $("<p>").text(time);
 			
 			//appending the picture, title and time to browser
-			recipeDiv.append(recipePicture, recipeTitle, recipeTime);
+			recipeDiv.append(recipePicture, recipeTitle);
 			$("#recipe-view").append(recipeDiv);
 		}
 	});
