@@ -37,16 +37,18 @@ var orm = {
 		});
 	},
 	// Function that insert a single table entry
-	userADD: function(table, vals, cb){
+	userADD: function(table, cols, vals, cb){
 		// Construct the query string that insert a single row into the target table
 		var queryString = "INSERT INTO " + table;
+		
+		queryString += " SET ";
+		queryString += "username = '";
+		queryString += cols.toString();
+		queryString += "' , passW = '";
+		queryString += vals.toString();
+		queryString += "' ;";
 
-
-		queryString += "VALUES (";
-		queryString += printQuestionMarks(vals.length);
-		queryString += ") ";
-
-		// console.log(queryString);
+		console.log(queryString);
 
 		// Perform the database query
 		connection.query(queryString, vals, function(err, result) {
