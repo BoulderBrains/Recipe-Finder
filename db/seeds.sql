@@ -1,4 +1,4 @@
-INSERT INTO burgers (burger_name, devoured) VALUES ('Big Mac', false);
-INSERT INTO burgers (burger_name, devoured) VALUES ('Peanut Butter Burger', true);
-INSERT INTO burgers (burger_name, devoured) VALUES ('R.C. Burger', false);
-INSERT INTO burgers (burger_name, devoured) VALUES ('Cheetos Burger', true);
+INSERT INTO users (username, passW) VALUES ('Thomas', '111');
+INSERT INTO users (username, passW) VALUES ('Richard', '222');
+INSERT INTO users (username, passW) VALUES ('Joshua', '333');
+INSERT INTO users (username, passW) VALUES ('Seif', '444');
