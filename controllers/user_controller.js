@@ -25,7 +25,7 @@ router.post("/login", function(req, res){
 });
 
 router.post("/add", function(req, res){
-	user.userADD( [req.body.username], [req.body.password], function(data) {
+	user.userADD( [req.body], function(data) {
 		res.redirect("/");
 	});
 });
