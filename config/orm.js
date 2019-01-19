@@ -40,13 +40,24 @@ var orm = {
 	userADD: function(table, cols, vals, cb){
 		// Construct the query string that insert a single row into the target table
 		var queryString = "INSERT INTO " + table;
-		
-		queryString += " SET ";
-		queryString += "username = '";
+		//Check for existing user
+		queryString += "( username, passW ) ";
+		queryString += "SELECT * FROM ( SELECT '";
 		queryString += cols.toString();
-		queryString += "' , passW = '";
+		queryString += "' as username, '";
 		queryString += vals.toString();
-		queryString += "' ;";
+		queryString += "' as passW ) AS tmp WHERE NOT EXISTS ( SELECT username FROM ";
+		queryString += table;
+		queryString += " WHERE username = '";
+		queryString += cols.toString();
+		queryString += "' ) ;";
+		
+		//queryString += " SET ";
+		//queryString += "username = '";
+		//queryString += cols.toString();
+		//queryString += "' , passW = '";
+		//queryString += vals.toString();
+		//queryString += "' ;";
 
 		console.log(queryString);
 
