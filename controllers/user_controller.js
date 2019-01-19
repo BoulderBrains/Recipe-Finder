@@ -27,8 +27,8 @@ router.post("/login", function(req, res){
 router.post("/add", function(req, res){
     
 	user.userADD( [req.body.username], [req.body.password], function(data) {
-		if (data.length > 0) {
-            
+        console.log(data.length);
+		if (data != 0) {
             res.redirect("/recipe");
         } else {
             res.send("USER EXISTS!!!!!!");
