@@ -7,8 +7,8 @@ var user = {
         });
     },
 
-    userADD: function(vals, cb){
-        orm.userADD("users", vals, function(res){
+    userADD: function(cols, vals, cb){
+        orm.userADD("users", cols, vals, function(res){
             cb(res);
         });
     }
