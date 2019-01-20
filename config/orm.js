@@ -34,6 +34,7 @@ var orm = {
 			}
 			// Return results in callback
 			cb(result);
+			console.log(result);
 		});
 	},
 	// Function that insert a single table entry
@@ -62,12 +63,13 @@ var orm = {
 		console.log(queryString);
 
 		// Perform the database query
-		connection.query(queryString, vals, function(err, result) {
+		connection.query(queryString, cols, function(err, result) {
 			if (err) {
 				throw err;
 			}
 			// Return results in callback
-			cb(result);
+			cb(result.affectedRows);
+			console.log(result.affectedRows);
 		});
 	},
 	// Function that updates a single table entry
