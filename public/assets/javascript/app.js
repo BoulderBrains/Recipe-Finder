@@ -5,12 +5,16 @@ $("#find-ingredient").on("click", function (event) {
 	event.preventDefault();
 	// create variable for ingredients input #ingredient-input
 	var ingredient = $('#ingredient-input').val();
-	console.log("ingredient: " + ingredient);
+
 	// add value from input to ingredients array
 	ingredients.push(ingredient);
-	// print out ingredients array after ingredient is added to it. 
-	$('.ingredients-list').append(ingredient + ", ");
-	console.log(ingredients);
+
+	// create a list item for the ingredient
+	var ingredientListItem = $("<li>").html(ingredient);
+
+	// append ingredient to ingredients list 
+	$('.ingredients-list').append(ingredientListItem);
+	$('#ingredient-input').val("");
 });
 
 // This .on("click") function will trigger the AJAX Call

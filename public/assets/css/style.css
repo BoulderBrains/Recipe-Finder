@@ -12,6 +12,8 @@ body {
 
 .title {
 	font-family: 'Permanent Marker', cursive;
+	font-size: 50px;
+	margin-bottom: 40px;
 }
 
 
@@ -98,6 +100,42 @@ body {
 	color: #666;
 }
 
+#ingredients-form .input-group {
+	flex-wrap: nowrap;
+}
+
+.ingredient-input {
+	width: 80%;
+	margin: 0 auto;
+	height: 51px;
+	font-size: 16px;
+	border-radius: 4px;
+}
+
+#ingredients-form #find-ingredient {
+	font-size: 16px;
+	border-radius: 4px;
+	margin-left: 10px;
+}
+
+.ingredients-list-wrap {
+	font-size: 26px;
+	font-family: Metrophobic;
+	max-width: 300px;
+    margin: 0 auto;
+}
+
+.directions-text {
+	font-size: 20px;
+	font-family: Metrophobic;
+	color: #726d6d;
+}
+
+.recipe-search-button {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
 .recipe-card {
 	margin: 15px;
 	background-color: #FBFFAA;
@@ -110,14 +148,13 @@ body {
 .recipe-image {
 	width: 100%;
 	border: 1px solid black;
-    border-radius: 4px;
+	border-radius: 4px;
 }
 
 .recipe-name {
 	font-family: Metrophobic;
 	font-size: 24px;
 	text-align: center;
-    margin-top: 20px;
-
+	margin-top: 20px;
 }
 

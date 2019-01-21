@@ -16,32 +16,32 @@
 </head>
 
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid text-center">
 		<h1 class="text-center title">Recipe search</h1>
 
 		<form id="ingredients-form">
 			<div class="input-group mb-3">
-				<input id="ingredient-input" class="form-control" type="text" placeholder="What ingredients do you have?" aria-label="" aria-describedby="basic-addon1">
+				<input id="ingredient-input" class="ingredient-input" type="text" placeholder="Enter an ingredient you have, add it to your list" aria-label="" aria-describedby="basic-addon1">
 				<div class="input-group-prepend">
-				  <button id="find-ingredient" class="btn btn-outline-secondary" type="button">Add Ingredient</button>
+				  <button id="find-ingredient" class="btn btn-success add-ingredient-button" type="submit">Add Ingredient</button>
 				</div>
 			  </div>
 		</form>
 
-		<div>Ingredients list: 
-			<p class="ingredients-list"></p>
+		<div class="ingredients-list-wrap">Ingredients list: 
+			<ol class="ingredients-list"></ol>
 		</div>
 		
 		<!-- This form will be where users input data about the recipes -->
 		<form id="recipe-form">
-			<label for="recipe-input">Search for a recipe</label><br>
+			<div class="directions-text">When your list is complete, search for recipes!</div>
+			<label for="recipe-input"></label><br>
 			<!-- This button will trigger our AJAX call -->
-			<input id="find-recipe" class="btn btn-light" type="submit" value="Recipe Search">
+			<input id="find-recipe" class="btn btn-login recipe-search-button" type="submit" value="Search For Recipe">
 		</form>
 
 		<!-- We'll be dumping our JSON contents in here -->
-		
-			<div id="recipe-view" class="col-sm-12 row"></div>
+		<div id="recipe-view" class="col-sm-12 row"></div>
 
 
 		<!-- Jquery -->
