@@ -40,7 +40,7 @@ $("#find-recipe").one("click", function (event) {
 			console.log(response.hits[i].recipe.url);
 
 
-			var recipeDiv = $("<div class='col-lg-4 col-sm-6'>");
+			var recipeDiv = $("<div class='col-sm panel'>");
 
 			var title = response.hits[i].recipe.label;
 			// var time = "Total time: " + response.hits[i].recipe.totalTime + " minutes";
@@ -49,17 +49,19 @@ $("#find-recipe").one("click", function (event) {
 
 			//creating an image tag for the recipe picture
 			var foodImage = $("<img>");
-			foodImage.addClass("image");
+			foodImage.addClass("recipe-image");
 			foodImage.attr("src", image);
 			foodImage.attr("width", "300px");
 			
 			//variables that hold the picture, title and time to cook
-			var recipePicture = $("<a>").html(foodImage).attr("href", urlLink);
+			var recipePicture = $("<a>").html(foodImage).attr("href", urlLink).attr("target", "_new");
 			var recipeTitle = $("<p>").text(title);
+			recipeTitle.addClass("recipe-name");
 			// var recipeTime = $("<p>").text(time);
 			
 			//appending the picture, title and time to browser
 			recipeDiv.append(recipePicture, recipeTitle);
+			recipeDiv.addClass("panel-body recipe-card");
 			$("#recipe-view").append(recipeDiv);
 		}
 	});

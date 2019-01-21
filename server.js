@@ -1,6 +1,8 @@
 var express = require("express");
 var methodOverride = require('method-override');
 
+// app.use('/favicon.ico', express.static('public/assets/images/carrotEmoji.ico'));
+
 var PORT = process.env.PORT || 8080;
 
 var app = express();
