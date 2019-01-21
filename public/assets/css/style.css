@@ -12,6 +12,8 @@ body {
 
 .title {
 	font-family: 'Permanent Marker', cursive;
+	font-size: 50px;
+	margin-bottom: 40px;
 }
 
 
@@ -98,20 +100,61 @@ body {
 	color: #666;
 }
 
-.btn-register {
-	background-color: #1CB94E;
-	outline: none;
-	color: #fff;
-	font-size: 14px;
-	height: auto;
-	font-weight: normal;
-	padding: 14px 0;
-	text-transform: uppercase;
-	border-color: #1CB94A;
+#ingredients-form .input-group {
+	flex-wrap: nowrap;
 }
-.btn-register:hover,
-.btn-register:focus {
-	color: #fff;
-	background-color: #1CA347;
-	border-color: #1CA347;
+
+.ingredient-input {
+	width: 80%;
+	margin: 0 auto;
+	height: 51px;
+	font-size: 16px;
+	border-radius: 4px;
 }
+
+#ingredients-form #find-ingredient {
+	font-size: 16px;
+	border-radius: 4px;
+	margin-left: 10px;
+}
+
+.ingredients-list-wrap {
+	font-size: 26px;
+	font-family: Metrophobic;
+	max-width: 300px;
+    margin: 0 auto;
+}
+
+.directions-text {
+	font-size: 20px;
+	font-family: Metrophobic;
+	color: #726d6d;
+}
+
+.recipe-search-button {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.recipe-card {
+	margin: 15px;
+	background-color: #FBFFAA;
+}
+
+.recipe-card:hover {
+	transform: scale(1.1);
+}
+
+.recipe-image {
+	width: 100%;
+	border: 1px solid black;
+	border-radius: 4px;
+}
+
+.recipe-name {
+	font-family: Metrophobic;
+	font-size: 24px;
+	text-align: center;
+	margin-top: 20px;
+}
+
