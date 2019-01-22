@@ -11,9 +11,14 @@ var user = {
         orm.userADD("users", cols, vals, function(res){
             cb(res);
         });
-    }
-
-
+	},
+	
+	// TODO: Refine this so it works
+	userFAVORITE: function(cols, vals, cb) {
+		orm.userFavorite("users", cols, vals, function(res){
+			cb(res);
+		});
+	}
 }
 
 module.exports = user;

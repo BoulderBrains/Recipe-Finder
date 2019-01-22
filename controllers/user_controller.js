@@ -38,6 +38,21 @@ router.post("/add", function(req, res){
 	});
 });
 
+router.post("/update", function(req, res){
+    
+	user.userFAVORITE( [req.body.username], [req.body.password], [req.body.favorite], function(data) {
+		console.log(data.length);
+		
+		// if (data != 0) {
+        //     res.redirect("/recipe");
+        // } else {
+        //     res.send("USER EXISTS!!!!!!");
+            
+        // }			
+        res.end();
+	});
+});
+
 
 //Export routers for server.js to use
 module.exports = router;
