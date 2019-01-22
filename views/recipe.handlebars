@@ -8,7 +8,7 @@
 
 	{{!-- TODO: NOT WORKING YET --}}
 	<!-- Custom Favicon -->
-	<link rel="shortcut icon" type="image/png" href="../public/assets/images/carrotEmoji.ico"/>
+	<link rel="shortcut icon" type="image/png" href="../public/assets/images/favicon.ico"/>
 
 	<!-- Google font link -->
 	<link href="https://fonts.googleapis.com/css?family=Metrophobic|Permanent+Marker" rel="stylesheet">
@@ -42,9 +42,10 @@
 
 		{{!-- TODO: This doesn't work yet
 		This will display the user's favorite recipe --}}
-		<div class="favorites">Favorites
+		<div class="favorites">
+			<h1>Favorite recipe</h1>
 			{{#each users}}
-				<h1>{{ this.favorited }} </h1>
+				<h3>{{ this.favorited }}</h3>
 			{{/each}}
 		</div>
 
