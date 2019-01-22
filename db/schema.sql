@@ -8,7 +8,8 @@ USE users_db;
 CREATE TABLE users (
 id INT NOT NULL AUTO_INCREMENT,
 username VARCHAR(255) NOT NULL,
-passW VARCHAR(255) NOT NULL, 
+passW VARCHAR(255) NOT NULL,
+favorited VARCHAR(500),
 PRIMARY KEY (id)
 );
 

@@ -61,6 +61,15 @@ $("#find-recipe").one("click", function (event) {
 			var recipePicture = $("<a>").html(foodImage).attr("href", urlLink).attr("target", "_new");
 			var recipeTitle = $("<p>").text(title);
 			recipeTitle.addClass("recipe-name");
+
+			var favoriteButton = $("<input>").addClass("favorite-button btn btn-warning");
+			var star = '\u2b50';
+			favoriteButton.attr("value", star);
+			favoriteButton.attr("type", "button");
+
+			recipePicture.append(favoriteButton);
+
+
 			// var recipeTime = $("<p>").text(time);
 			
 			//appending the picture, title and time to browser

@@ -136,6 +136,10 @@ body {
 	padding-right: 20px;
 }
 
+#recipe-form {
+	margin-bottom: 60px;
+}
+
 .recipe-card {
 	margin: 15px;
 	background-color: #FBFFAA;
@@ -156,5 +160,15 @@ body {
 	font-size: 24px;
 	text-align: center;
 	margin-top: 20px;
+}
+
+.favorite-button {
+	height: 50px;
+	width: 50px;
+	font-size: 14px;
+	font-family: Metrophobic;
+	position: absolute;
+	top: 0;
+    left: 0;
 }
 
