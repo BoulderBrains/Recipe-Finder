@@ -40,6 +40,14 @@
 			<input id="find-recipe" class="btn btn-login recipe-search-button" type="submit" value="Search For Recipes">
 		</form>
 
+		{{!-- TODO: This doesn't work yet
+		This will display the user's favorite recipe --}}
+		<div class="favorites">Favorites
+			{{#each users}}
+				<h1>{{ this.favorited }} </h1>
+			{{/each}}
+		</div>
+
 		<!-- We'll be dumping our JSON contents in here -->
 		<div id="recipe-view" class="col-sm-12 row"></div>
 

@@ -19,8 +19,6 @@ var user = {
 			cb(res);
 		});
 	}
-
-
 }
 
 module.exports = user;

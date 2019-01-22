@@ -52,13 +52,6 @@ var orm = {
 		queryString += " WHERE username = '";
 		queryString += cols.toString();
 		queryString += "' ) ;";
-		
-		//queryString += " SET ";
-		//queryString += "username = '";
-		//queryString += cols.toString();
-		//queryString += "' , passW = '";
-		//queryString += vals.toString();
-		//queryString += "' ;";
 
 		console.log(queryString);
 
@@ -74,14 +67,19 @@ var orm = {
 	},
 
 	// Function that replaces user's favorite recipe
-	userFAVORITE: function(table, objColVals, condition, cb){
-		// Construct the query string that update a signle entry in the target table
+	// TODO: Doesn't work yet, the update query needs work
+	userFAVORITE: function(table, cols, vals, cb){
+		// Construct the query string that update a single entry in the target table
 		var queryString = "UPDATE " + table;
+		queryString += " SET favorited";
+		// Value of recipe URL
+		queryString += vals.toString();
+		// current user
+		queryString += " WHERE username = '";
+		queryString += cols.toString();
+		queryString += "' ) ;";
 
-		queryString += " SET ";
-		queryString += objToSql(objColVals);
-		queryString += " WHERE ";
-		queryString += condition;
+		console.log(queryString);
 
 		// console.log(queryString);
 		connection.query(queryString, function(err, result){
