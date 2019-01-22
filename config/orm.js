@@ -72,8 +72,9 @@ var orm = {
 			console.log(result.affectedRows);
 		});
 	},
-	// Function that updates a single table entry
-	userFAV: function(table, objColVals, condition, cb){
+
+	// Function that replaces user's favorite recipe
+	userFAVORITE: function(table, objColVals, condition, cb){
 		// Construct the query string that update a signle entry in the target table
 		var queryString = "UPDATE " + table;
 
