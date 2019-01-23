@@ -70,6 +70,8 @@ var orm = {
 	// TODO: Doesn't work yet, the update query needs work
 	userFAVORITE: function(table, cols, vals, cb){
 		// Construct the query string that update a single entry in the target table
+		// Example of what query should look like: 
+		// UPDATE users SET favorited (TO RECIPE URL) WHERE user = currentUser
 		var queryString = "UPDATE " + table;
 		queryString += " SET favorited";
 		// Value of recipe URL

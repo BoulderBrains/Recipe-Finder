@@ -39,6 +39,8 @@ router.post("/add", function(req, res){
 });
 
 router.post("/update", function(req, res){
+
+	// could do an ajax call  to post?
     
 	user.userFAVORITE( [req.body.username], [req.body.password], [req.body.favorite], function(data) {
 		console.log(data.length);

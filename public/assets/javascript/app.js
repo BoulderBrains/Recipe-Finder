@@ -65,9 +65,14 @@ $("#find-recipe").one("click", function (event) {
 			var favoriteButton = $("<input>").addClass("favorite-button btn btn-warning");
 			var star = '\u2b50';
 			favoriteButton.attr("value", star);
-			favoriteButton.attr("type", "button");
+			favoriteButton.attr("type", "submit");
 
-			recipePicture.append(favoriteButton);
+			var favoriteTrigger = $("<form>").attr("action", "/update");
+			favoriteTrigger.attr("method", "POST");
+
+			favoriteTrigger.append(favoriteButton);
+
+			recipePicture.append(favoriteTrigger);
 
 
 			// var recipeTime = $("<p>").text(time);
