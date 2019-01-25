@@ -23,6 +23,15 @@ function objToSql(ob) {
 
 //Object for all our SQL statement functions.
 var orm = {
+	all: function(tableInput, cb) {
+		var queryString = "SELECT * FROM " + tableInput + ";";
+		connection.query(queryString, function(err, result) {
+		  if (err) {
+			throw err;
+		  }
+		  cb(result);
+		});
+	  },
 	//Get user from login and compares to database
 	userGET: function(tableInput,username, passW, cb) {
 		// Construct the query string that return all rows from the target table
@@ -68,22 +77,18 @@ var orm = {
 
 	// Function that replaces user's favorite recipe
 	// TODO: Doesn't work yet, the update query needs work
-	userFAVORITE: function(table, cols, vals, cb){
+	userFAVORITE: function(table, objColVals, condition, cb){
 		// Construct the query string that update a single entry in the target table
 		// Example of what query should look like: 
 		// UPDATE users SET favorited (TO RECIPE URL) WHERE user = currentUser
 		var queryString = "UPDATE " + table;
-		queryString += " SET favorited";
-		// Value of recipe URL
-		queryString += vals.toString();
-		// current user
-		queryString += " WHERE username = '";
-		queryString += cols.toString();
-		queryString += "' ) ;";
+		queryString += " SET ";
+    	queryString += objToSql(objColVals);
+    	queryString += " WHERE ";
+		queryString += condition;
 
 		console.log(queryString);
 
-		// console.log(queryString);
 		connection.query(queryString, function(err, result){
 			if (err) {
 				throw err;

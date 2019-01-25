@@ -6,7 +6,17 @@ var user = require("../models/user.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req,res){
-    res.render("index");
+	user.all(function(data) {
+		var hbsObject = {
+		  users: data
+		};
+		console.log(hbsObject);
+		res.render("recipe", hbsObject);
+	});
+});
+
+router.get("/recipe",function(req,res){
+    res.render("recipe");
 });
 
 router.post("/login", function(req, res){
@@ -38,21 +48,24 @@ router.post("/add", function(req, res){
 	});
 });
 
-router.post("/update", function(req, res){
+router.post("/recipe", function(req, res){
+	
 
-	// could do an ajax call  to post?
-    
 	user.userFAVORITE( [req.body.username], [req.body.password], [req.body.favorite], function(data) {
 		console.log(data.length);
-		
-		// if (data != 0) {
-        //     res.redirect("/recipe");
-        // } else {
-        //     res.send("USER EXISTS!!!!!!");
-            
-        // }			
-        res.end();
-	});
+
+		user.update({
+			username: req.body.username,
+			favoriteRecipe: req.body.favorite
+		}, condition, function(result) {
+			if (result.changedRows == 0) {
+				// If no rows were changed, then the ID must not exist, so 404
+				return res.status(404).end();
+			  } else {
+				res.status(200).end();
+			  }
+		});
+	});			
 });
 
 

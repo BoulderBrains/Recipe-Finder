@@ -38,10 +38,10 @@ $("#find-recipe").one("click", function (event) {
 	}).then(function (response) {
 	
 		for (var i = 0; i < response.hits.length; i++){
-			console.log(response)
-			console.log(response.hits[i].recipe.image);
-			console.log(response.hits[i].recipe.label);
-			console.log(response.hits[i].recipe.url);
+			// console.log(response)
+			// console.log(response.hits[i].recipe.image);
+			// console.log(response.hits[i].recipe.label);
+			// console.log(response.hits[i].recipe.url);
 
 
 			var recipeDiv = $("<div class='col-sm panel'>");
@@ -67,7 +67,7 @@ $("#find-recipe").one("click", function (event) {
 			favoriteButton.attr("value", star);
 			favoriteButton.attr("type", "submit");
 
-			var favoriteTrigger = $("<form>").attr("action", "/update");
+			var favoriteTrigger = $("<form>").attr("action", "/recipe");
 			favoriteTrigger.attr("method", "POST");
 
 			favoriteTrigger.append(favoriteButton);
