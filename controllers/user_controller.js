@@ -6,17 +6,17 @@ var user = require("../models/user.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req,res){
-	user.all(function(data) {
+    res.render("index");
+});
+
+router.get("/recipe",function(req,res){
+    user.all(function(data) {
 		var hbsObject = {
-		  users: data
+			users: data
 		};
 		console.log(hbsObject);
 		res.render("recipe", hbsObject);
 	});
-});
-
-router.get("/recipe",function(req,res){
-    res.render("recipe");
 });
 
 router.post("/login", function(req, res){
@@ -50,7 +50,6 @@ router.post("/add", function(req, res){
 
 router.post("/recipe", function(req, res){
 	
-
 	user.userFAVORITE( [req.body.username], [req.body.password], [req.body.favorite], function(data) {
 		console.log(data.length);
 
