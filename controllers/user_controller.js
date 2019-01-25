@@ -38,15 +38,18 @@ router.post("/login", function(req, res){
 router.post("/add", function(req, res){
     
 	user.userADD( [req.body.username], [req.body.password], function(data) {
-        console.log(data.length);
-		if (data != 0) {
-            res.redirect("/recipe");
+		// console.log(data.length);
+		connection.query("SELECT * FROM users WHERE username = ?", req.body.username, function(err, user, fields){
+
+		if (user != 0) {
+            res.redirect("/recipe/" + user[0].id);
         } else {
             res.send("USER EXISTS!!!!!!");
             
         }			
         res.end();
 	});
+});
 });
 
 router.post("/recipe", function(req, res){
