@@ -36,7 +36,6 @@ router.post("/login", function(req, res){
 });
 
 router.post("/add", function(req, res){
-    
 	user.userADD( [req.body.username], [req.body.password], function(data) {
 		// console.log(data.length);
 		connection.query("SELECT * FROM users WHERE username = ?", req.body.username, function(err, user, fields){
@@ -53,6 +52,7 @@ router.post("/add", function(req, res){
 });
 
 router.post("/recipe", function(req, res){
+	console.log("LARGE OBJECT", req.url);
 	user.userFAVORITE({
 		username: req.body.username,
 		favoriteRecipe: req.body.favorited

@@ -91,12 +91,13 @@ var orm = {
 		// Construct the query string that update a single entry in the target table
 		// Example of what query should look like: 
 		// UPDATE users SET favorited (TO RECIPE URL) WHERE user = currentUser
-		var queryString = "UPDATE " + table;
-		queryString += " SET ";
-    	queryString += objToSql(objColVals);
-    	queryString += " WHERE ";
-		queryString += condition;
+		// var queryString = "UPDATE " + table;
+		// queryString += " SET ";
+    	// queryString += objToSql(objColVals);
+    	// queryString += " WHERE ";
+		// queryString += condition;
 
+		var queryString = "UPDATE users SET favorited=" + urlLink +"WHERE username = '"+ username + "' ;";
 		console.log(queryString);
 
 		connection.query(queryString, function(err, result){
