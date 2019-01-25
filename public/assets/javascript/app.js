@@ -86,13 +86,13 @@ $(document).ready(function() {
 				recipeDiv.append(recipePicture, recipeTitle);
 				recipeDiv.addClass("panel-body recipe-card");
 				$("#recipe-view").append(recipeDiv);
-			}
-		});
-	});
+			};
 
-	$(".recipe-card").on("click", ".favorite-trigger", function() {
-		console.log("Shit was clicked");
-		var favLink = $(this);
-		console.log(favLink);
+				$(".recipe-card").on("click", ".favorite-trigger", function() {
+					console.log("Shit was clicked");
+				var favLink = $(this)[0].attributes[4].nodeValue;
+					console.log(favLink);
+			});
+		});
 	});
 });
