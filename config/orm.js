@@ -31,9 +31,19 @@ var orm = {
 		  }
 		  cb(result);
 		});
-	  },
+	},
+	userGetData: function(id, cb) {
+		connection.query("SELECT * FROM users WHERE id = ?", [id], function(err, result){
+			if (err) {
+				throw err; 
+			}
+			// Return results in callback
+			cb(result);
+			console.log(result);
+		});
+	},
 	//Get user from login and compares to database
-	userGET: function(tableInput,username, passW, cb) {
+	userGET: function(tableInput, username, passW, cb) {
 		// Construct the query string that return all rows from the target table
 		var queryString = "SELECT username, passW FROM " + tableInput + " WHERE username = '"+ username + "' AND passW = '" + passW + "' ;";
 		// Perform the database query
@@ -43,7 +53,7 @@ var orm = {
 			}
 			// Return results in callback
 			cb(result);
-			console.log(result);
+			console.log("i am the result", result);
 		});
 	},
 	// Function that insert a single table entry

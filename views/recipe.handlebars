@@ -44,17 +44,18 @@
 		This will display the user's favorite recipe --}}
 		<div class="favorites">
 			<h1>Favorite recipe</h1>
+
+			{{ this.users.username }}
+			{{ this.users.favorited }}
+
 			{{#each users}}
-				<h3>{{ this.favorited }}</h3>
+				<h1>Username: {{ this.username }}</h1>
+				<h3>Favorite Recipe: {{ this.favorited }}</h3>
 			{{/each}}
 		</div>
 
-		Jquery button onclick
-		callback function which will trigger the Ajax POST request to this route when button is clicked
-
 		<!-- We'll be dumping our JSON contents in here -->
 		<div id="recipe-view" class="col-sm-12 row"></div>
-
 
 		<!-- Jquery -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

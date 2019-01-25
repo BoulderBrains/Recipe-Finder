@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+var connection = require("../config/connection.js");
 
 // Import the model (burger.js) to use its database functions.
 var user = require("../models/user.js");
@@ -9,8 +10,8 @@ router.get("/", function(req,res){
     res.render("index");
 });
 
-router.get("/recipe",function(req,res){
-    user.all(function(data) {
+router.get("/recipe/:userId",function(req,res){
+    user.userGetData(req.params.userId, function(data) {
 		var hbsObject = {
 			users: data
 		};
@@ -23,14 +24,14 @@ router.post("/login", function(req, res){
     console.log(req.body);
     
 	user.userGET([req.body.username], [req.body.password], function(data){
-		if (data.length > 0) {
-            
-            res.redirect("/recipe");
-        } else {
-            res.send("Incorrect Username and/or Password!");
-            
-        }			
-        res.end();
+		connection.query("SELECT * FROM users WHERE username = ?", req.body.username, function(err, user, fields){
+			if (user) {
+				res.redirect("/recipe/" + user[0].id);
+			} else {
+				res.send("Incorrect Username and/or Password!");
+				
+			}	
+		});
     });
 });
 
@@ -49,21 +50,16 @@ router.post("/add", function(req, res){
 });
 
 router.post("/recipe", function(req, res){
-	
-	user.userFAVORITE( [req.body.username], [req.body.password], [req.body.favorite], function(data) {
-		console.log(data.length);
-
-		user.update({
-			username: req.body.username,
-			favoriteRecipe: req.body.favorite
-		}, condition, function(result) {
-			if (result.changedRows == 0) {
-				// If no rows were changed, then the ID must not exist, so 404
-				return res.status(404).end();
-			  } else {
-				res.status(200).end();
-			  }
-		});
+	user.userFAVORITE({
+		username: req.body.username,
+		favoriteRecipe: req.body.favorited
+	}, function(result) {
+		if (result.changedRows == 0) {
+			// If no rows were changed, then the ID must not exist, so 404
+			return res.status(404).end();
+		} else {
+			res.status(200).end();
+		}
 	});			
 });
 

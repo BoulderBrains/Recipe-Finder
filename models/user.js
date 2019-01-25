@@ -6,6 +6,11 @@ var user = {
 			cb(res);
 		});
 	},
+	userGetData: function(id, cb){
+        orm.userGetData(id, function(res){
+            cb(res);
+        });
+    },
 	// does this need to be updated to create?
     userGET: function( username, password, cb){
         orm.userGET("users", username, password, function(res){
