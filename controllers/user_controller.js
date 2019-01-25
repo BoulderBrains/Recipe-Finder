@@ -9,6 +9,16 @@ router.get("/", function(req,res){
     res.render("index");
 });
 
+router.get("/recipe",function(req,res){
+    user.all(function(data) {
+		var hbsObject = {
+			users: data
+		};
+		console.log(hbsObject);
+		res.render("recipe", hbsObject);
+	});
+});
+
 router.post("/login", function(req, res){
     console.log(req.body);
     
@@ -38,21 +48,23 @@ router.post("/add", function(req, res){
 	});
 });
 
-router.post("/update", function(req, res){
-
-	// could do an ajax call  to post?
-    
+router.post("/recipe", function(req, res){
+	
 	user.userFAVORITE( [req.body.username], [req.body.password], [req.body.favorite], function(data) {
 		console.log(data.length);
-		
-		// if (data != 0) {
-        //     res.redirect("/recipe");
-        // } else {
-        //     res.send("USER EXISTS!!!!!!");
-            
-        // }			
-        res.end();
-	});
+
+		user.update({
+			username: req.body.username,
+			favoriteRecipe: req.body.favorite
+		}, condition, function(result) {
+			if (result.changedRows == 0) {
+				// If no rows were changed, then the ID must not exist, so 404
+				return res.status(404).end();
+			  } else {
+				res.status(200).end();
+			  }
+		});
+	});			
 });
 
 
