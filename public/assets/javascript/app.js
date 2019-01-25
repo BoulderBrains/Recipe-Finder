@@ -18,6 +18,8 @@ $(document).ready(function() {
 		$('#ingredient-input').val("");
 	});
 
+	var dataFromAPI;
+
 	// This .on("click") function will trigger the AJAX Call
 	$("#find-recipe").one("click", function (event) {
 
@@ -35,7 +37,8 @@ $(document).ready(function() {
 		// and display it in the div with an id of recipe-view
 		$.ajax({
 			url: queryURL,
-			method: "GET"
+			method: "GET",
+			success: logFavorite(response),
 		}).then(function (response) {
 			console.log(response);
 			for (var i = 0; i < response.hits.length; i++){
@@ -93,6 +96,13 @@ $(document).ready(function() {
 				var favLink = $(this)[0].attributes[4].nodeValue;
 					console.log(favLink);
 			});
-		});
+		})
 	});
+
+	function logFavorite(response, favLink1, favLink2, favLink3) {
+		console.log("log favorite data: " + response);
+		console.log("outside fav link 1: " + favLink1);
+		console.log("outside fav link 2: " + favLink2);
+		console.log("outside fav link 3: " + favLink3);
+	}
 });
