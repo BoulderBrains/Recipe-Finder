@@ -6,14 +6,17 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
-	{{!-- TODO: NOT WORKING YET --}}
-	<!-- Custom Favicon -->
-	<link rel="shortcut icon" type="image/png" href="../public/assets/images/favicon.ico"/>
-
 	<!-- Google font link -->
 	<link href="https://fonts.googleapis.com/css?family=Metrophobic|Permanent+Marker" rel="stylesheet">
 
 </head>
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    Username: {{ this.users.username }}
+  </a>
+</nav>
 
 <body>
 	<div class="container-fluid text-center">
@@ -40,8 +43,6 @@
 			<input id="find-recipe" class="btn btn-login recipe-search-button" type="submit" value="Search For Recipes">
 		</form>
 
-		{{!-- TODO: This doesn't work yet
-		This will display the user's favorite recipe --}}
 		<div class="favorites">
 			<h1>Favorite recipe</h1>
 
