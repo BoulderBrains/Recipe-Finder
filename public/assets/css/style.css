@@ -200,7 +200,7 @@ TODO: fix the ablity for a user to favorite a recipe, then show the button */
 	position: absolute;
 }
 
-#signoutButton {
+#signout-button {
 	height: 60px;
 	right:20px;
 	position: absolute;

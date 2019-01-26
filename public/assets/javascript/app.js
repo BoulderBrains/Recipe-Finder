@@ -1,11 +1,12 @@
 $(document).ready(function () {
-	//signout
-	$('#signoutButton').click(function() {
+	// Signout button
+	$('#signout-button').click(function() {
 		window.location.href = '../';
 		return false;
 	});
 
 	var ingredients = [];
+	var mykey = config.API_KEY;
 
 	$("#find-ingredient").on("click", function (event) {
 		event.preventDefault();
@@ -34,7 +35,7 @@ $(document).ready(function () {
 		var recipe = ingredients;
 
 		// Constructing our query URL to hit the API
-		var queryURL = "https://api.edamam.com/search?q=" + recipe + "&app_id=3d68d15b&app_key=ff6536114baba9fa9737d7daa7776171&from=0&to=3";
+		var queryURL = "https://api.edamam.com/search?q=" + recipe + "&app_id=3d68d15b&app_key=" + mykey;
 
 		// Write code between the dashes below to hit the queryURL with $ajax, then take the response data
 		// and display it in the div with an id of recipe-view
