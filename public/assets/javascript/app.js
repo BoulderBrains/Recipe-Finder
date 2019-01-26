@@ -1,4 +1,9 @@
 $(document).ready(function () {
+	//signout
+	$('#signoutButton').click(function() {
+		window.location.href = '../';
+		return false;
+	});
 
 	var ingredients = [];
 

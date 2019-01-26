@@ -196,6 +196,13 @@ TODO: fix the ablity for a user to favorite a recipe, then show the button */
 }
 
 .favorite-recipe-link {
-	right: 20px;
+	right: 150px;
 	position: absolute;
+}
+
+#signoutButton {
+	height: 60px;
+	right:20px;
+	position: absolute;
+	font-size: 16px;
 }
