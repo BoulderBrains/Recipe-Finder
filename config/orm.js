@@ -13,19 +13,19 @@ var connection = require("./connection.js");
 
 //Object for all our SQL statement functions.
 var orm = {
-	all: function(tableInput, cb) {
+	all: function (tableInput, cb) {
 		var queryString = "SELECT * FROM " + tableInput + ";";
-		connection.query(queryString, function(err, result) {
+		connection.query(queryString, function (err, result) {
 			if (err) {
 				throw err;
 			}
-				cb(result);
-			});
+			cb(result);
+		});
 	},
-	userGetData: function(id, cb) {
-		connection.query("SELECT * FROM users WHERE id = ?", [id], function(err, result){
+	userGetData: function (id, cb) {
+		connection.query("SELECT * FROM users WHERE id = ?", [id], function (err, result) {
 			if (err) {
-				throw err; 
+				throw err;
 			}
 			// Return results in callback
 			cb(result);
@@ -33,13 +33,13 @@ var orm = {
 		});
 	},
 	//Get user from login and compares to database
-	userGET: function(tableInput, username, passW, cb) {
+	userGET: function (tableInput, username, passW, cb) {
 		// Construct the query string that return all rows from the target table
-		var queryString = "SELECT username, passW FROM " + tableInput + " WHERE username = '"+ username + "' AND passW = '" + passW + "' ;";
+		var queryString = "SELECT username, passW FROM " + tableInput + " WHERE username = '" + username + "' AND passW = '" + passW + "' ;";
 		// Perform the database query
-		connection.query(queryString, function(err, result){
+		connection.query(queryString, function (err, result) {
 			if (err) {
-				throw err; 
+				throw err;
 			}
 			// Return results in callback
 			cb(result);
@@ -47,7 +47,7 @@ var orm = {
 		});
 	},
 	// Function that insert a single table entry
-	userADD: function(table, cols, vals, cb){
+	userADD: function (table, cols, vals, cb) {
 		// Construct the query string that insert a single row into the target table
 		var queryString = "INSERT INTO " + table;
 		//Check for existing user
@@ -65,7 +65,7 @@ var orm = {
 		console.log(queryString);
 
 		// Perform the database query
-		connection.query(queryString, cols, function(err, result) {
+		connection.query(queryString, cols, function (err, result) {
 			if (err) {
 				throw err;
 			}
@@ -78,25 +78,25 @@ var orm = {
 	// Function that replaces user's favorite recipe
 	// TODO: Doesn't work yet, the update query needs work
 	// userFAVORITE: function(table, objColVals, condition, cb){
-		// Construct the query string that update a single entry in the target table
-		// Example of what query should look like: 
-		// UPDATE users SET favorited (TO RECIPE URL) WHERE user = currentUser
-		// var queryString = "UPDATE " + table;
-		// queryString += " SET ";
-    	// queryString += objToSql(objColVals);
-    	// queryString += " WHERE ";
-		// queryString += condition;
+	// Construct the query string that update a single entry in the target table
+	// Example of what query should look like: 
+	// UPDATE users SET favorited (TO RECIPE URL) WHERE user = currentUser
+	// var queryString = "UPDATE " + table;
+	// queryString += " SET ";
+	// queryString += objToSql(objColVals);
+	// queryString += " WHERE ";
+	// queryString += condition;
 
-		// var queryString = "UPDATE users SET favorited=" + urlLink +"WHERE username = '"+ username + "' ;";
-		// console.log(queryString);
+	// var queryString = "UPDATE users SET favorited=" + urlLink +"WHERE username = '"+ username + "' ;";
+	// console.log(queryString);
 
-		// connection.query(queryString, function(err, result){
-		// if (err) {
-		//		throw err;
-		// }
-		// Return results in callback
-		// 	cb(result);
-		// });
+	// connection.query(queryString, function(err, result){
+	// if (err) {
+	//		throw err;
+	// }
+	// Return results in callback
+	// 	cb(result);
+	// });
 	// }
 };
 

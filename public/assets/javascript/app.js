@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
 	var ingredients = [];
 
@@ -38,7 +38,7 @@ $(document).ready(function() {
 			method: "GET"
 		}).then(function (response) {
 			// console.log(response);
-			for (var i = 0; i < response.hits.length; i++){
+			for (var i = 0; i < response.hits.length; i++) {
 				// Construting our returned recipe cards
 				var recipeDiv = $("<div class='col-sm panel'>");
 				var title = response.hits[i].recipe.label;
@@ -50,7 +50,7 @@ $(document).ready(function() {
 				foodImage.addClass("recipe-image");
 				foodImage.attr("src", image);
 				foodImage.attr("width", "300px");
-				
+
 				// variables that holds the picture, title and time to cook
 				var recipePicture = $("<div>").html(foodImage);
 				var recipeTitle = $("<a>").html(title).attr("href", urlLink).attr("target", "_new");
@@ -69,7 +69,7 @@ $(document).ready(function() {
 				// favoriteButton.attr("method", "POST");
 
 				// recipePicture.append(favoriteButton);
-				
+
 				// appending the picture, title and time to browser
 				recipeDiv.append(recipePicture, recipeTitle);
 				recipeDiv.addClass("panel-body recipe-card");
@@ -78,7 +78,7 @@ $(document).ready(function() {
 
 			// We were unable to get our favoriting functionaly working. 
 			// TODO: fix the ablity for a user to favorite a recipe, then show the button
-			
+
 			// $(".recipe-card").on("click", ".favorite-trigger", function() {
 			// 	console.log("Shit was clicked");
 			// 	var favLink = $(this)[0].attributes[4].nodeValue;
