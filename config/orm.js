@@ -87,7 +87,7 @@ var orm = {
 
 	// Function that replaces user's favorite recipe
 	// TODO: Doesn't work yet, the update query needs work
-	userFAVORITE: function(table, objColVals, condition, cb){
+	// userFAVORITE: function(table, objColVals, condition, cb){
 		// Construct the query string that update a single entry in the target table
 		// Example of what query should look like: 
 		// UPDATE users SET favorited (TO RECIPE URL) WHERE user = currentUser
@@ -97,17 +97,17 @@ var orm = {
     	// queryString += " WHERE ";
 		// queryString += condition;
 
-		var queryString = "UPDATE users SET favorited=" + urlLink +"WHERE username = '"+ username + "' ;";
-		console.log(queryString);
+		// var queryString = "UPDATE users SET favorited=" + urlLink +"WHERE username = '"+ username + "' ;";
+		// console.log(queryString);
 
-		connection.query(queryString, function(err, result){
-			if (err) {
-				throw err;
-			}
-			// Return results in callback
-			cb(result);
-		});
-	}
+		// connection.query(queryString, function(err, result){
+		// if (err) {
+		//		throw err;
+		// }
+		// Return results in callback
+		// 	cb(result);
+		// });
+	// }
 };
 
 // Export the orm object for the model (burger.js).
