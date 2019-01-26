@@ -203,5 +203,6 @@ TODO: fix the ablity for a user to favorite a recipe, then show the button */
 #signoutButton {
 	height: 60px;
 	right:20px;
-	position: absolute
+	position: absolute;
+	font-size: 16px;
 }
