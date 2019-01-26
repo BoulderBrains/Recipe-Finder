@@ -41,9 +41,11 @@
        			<span class="text-muted">
 					{{#each users}}
 						<span class="text-left user-name-display">Hello {{ this.username }}!
-							<a class="favorite-recipe-link text-right" href="{{ this.favorited}}" target="_new">
-								Your Favorite Recipe
-							</a>
+							{{#if favorited}}
+								<a class="favorite-recipe-link text-right" href="{{ this.favorited}}" target="_new">
+									Your Favorite Recipe
+								</a>
+							{{/if}}
 						</span>
 					{{/each}}
 				</span>
