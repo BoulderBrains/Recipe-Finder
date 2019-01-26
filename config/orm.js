@@ -2,35 +2,25 @@
 var connection = require("./connection.js");
 
 // Helper function for SQL syntax.
-function printQuestionMarks(num) {
-	var arr = [];
+// function objToSql(ob) {
+// 	var arr = [];
 
-	for (var i = 0; i < num; i++){
-		arr.push("?");
-	}
-	return arr.toString();
-}
-
-// Helper function for SQL syntax.
-function objToSql(ob) {
-	var arr = [];
-
-	for (var key in ob){
-		arr.push(key + "=" + ob[key]);
-	}
-	return arr.toString();
-};
+// 	for (var key in ob){
+// 		arr.push(key + "=" + ob[key]);
+// 	}
+// 	return arr.toString();
+// };
 
 //Object for all our SQL statement functions.
 var orm = {
 	all: function(tableInput, cb) {
 		var queryString = "SELECT * FROM " + tableInput + ";";
 		connection.query(queryString, function(err, result) {
-		  if (err) {
-			throw err;
-		  }
-		  cb(result);
-		});
+			if (err) {
+				throw err;
+			}
+				cb(result);
+			});
 	},
 	userGetData: function(id, cb) {
 		connection.query("SELECT * FROM users WHERE id = ?", [id], function(err, result){
