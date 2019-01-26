@@ -11,13 +11,6 @@
 
 </head>
 
-{{!-- <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-    Username: {{ this.users.username }}
-  </a>
-</nav> --}}
-
 <body>
 	<div class="container-fluid text-center">
 		<h1 class="text-center title">Recipe search</h1>
@@ -47,14 +40,19 @@
     		<div class="container">
        			<span class="text-muted">
 					{{#each users}}
-						<p class="user-name-display">Welcome Back: {{ this.username }}</h1>
-						<p class="favorite-recipe-display">Favorite Recipe: {{ this.favorited }}</h3>
+						<span class="text-left user-name-display">Hello {{ this.username }}!
+							<a class="favorite-recipe-link text-right" href="{{ this.favorited}}" target="_new">
+								{{!-- <p class="favorite-recipe-display"> --}}
+									Your Favorite Recipe
+								{{!-- </p> --}}
+							</a>
+						</span>
 					{{/each}}
 				</span>
 			</div>
     	</footer>
 
-		<!-- We'll be dumping our JSON contents in here -->
+		<!-- We're dumping our JSON contents in here -->
 		<div id="recipe-view" class="col-sm-12 row"></div>
 
 		<!-- Jquery -->

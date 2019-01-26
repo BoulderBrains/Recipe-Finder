@@ -173,11 +173,21 @@ body {
 }
 
 .footer {
-	position: absolute;
-    bottom: 0;
+	position: fixed;
+    top: 0;
 	width: 100%;
 	left: 0;
     height: 60px;
     line-height: 60px;
-    background-color: #f5f5f5;
+	background-color: #f5f5f5;
+	z-index: 100;
+}
+
+.user-name-display {
+	font-size: 26px;
+}
+
+.favorite-recipe-link {
+	right: 20px;
+	position: absolute;
 }
