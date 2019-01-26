@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
 	var ingredients = [];
 
@@ -28,7 +28,7 @@ $(document).ready(function() {
 		// Here we grab the ingredients from the ingredients array
 		var recipe = ingredients;
 
-		// Here we construct our URL
+		// Constructing our query URL to hit the API
 		var queryURL = "https://api.edamam.com/search?q=" + recipe + "&app_id=3d68d15b&app_key=ff6536114baba9fa9737d7daa7776171&from=0&to=3";
 
 		// Write code between the dashes below to hit the queryURL with $ajax, then take the response data
@@ -37,62 +37,53 @@ $(document).ready(function() {
 			url: queryURL,
 			method: "GET"
 		}).then(function (response) {
-			console.log(response);
-			for (var i = 0; i < response.hits.length; i++){
-
-				// console.log(response.hits[i].recipe.image);
-				// console.log(response.hits[i].recipe.label);
-				// console.log(response.hits[i].recipe.url);
-
-
+			// console.log(response);
+			for (var i = 0; i < response.hits.length; i++) {
+				// Construting our returned recipe cards
 				var recipeDiv = $("<div class='col-sm panel'>");
-
 				var title = response.hits[i].recipe.label;
-				// var time = "Total time: " + response.hits[i].recipe.totalTime + " minutes";
 				var image = response.hits[i].recipe.image;
 				var urlLink = response.hits[i].recipe.url;
 
-				//creating an image tag for the recipe picture
+				// creating an image tag for the recipe picture
 				var foodImage = $("<img>");
 				foodImage.addClass("recipe-image");
 				foodImage.attr("src", image);
 				foodImage.attr("width", "300px");
-				
-				//variables that hold the picture, title and time to cook
+
+				// variables that holds the picture, title and time to cook
 				var recipePicture = $("<div>").html(foodImage);
 				var recipeTitle = $("<a>").html(title).attr("href", urlLink).attr("target", "_new");
 				recipeTitle.addClass("recipe-name");
 
-				var favoriteButton = $("<button>").addClass("favorite-button btn btn-warning");
-				var star = '\u2b50';
-				favoriteButton.attr("value", star);
-				favoriteButton.attr("type", "submit");
-				favoriteButton.attr("action", "/recipe");
+				// We were unable to get our favoriting functionaly working. 
+				// TODO: fix the ablity for a user to favorite a recipe, then show the button
 
-				// var favoriteTrigger = $("<button>").attr("action", "/recipe");
-				// favoriteTrigger.attr("name", "favTrigger");
-				favoriteButton.attr("data-img-url", urlLink);
-				favoriteButton.addClass("favorite-trigger");
-				favoriteButton.attr("method", "POST");
+				// var favoriteButton = $("<button>").addClass("favorite-button btn btn-warning");
+				// var star = '\u2b50';
+				// favoriteButton.attr("value", star);
+				// favoriteButton.attr("type", "submit");
+				// favoriteButton.attr("action", "/recipe");
+				// favoriteButton.attr("data-img-url", urlLink);
+				// favoriteButton.addClass("favorite-trigger");
+				// favoriteButton.attr("method", "POST");
 
-				// favoriteTrigger.append(favoriteButton);
+				// recipePicture.append(favoriteButton);
 
-				recipePicture.append(favoriteButton);
-
-
-				// var recipeTime = $("<p>").text(time);
-				
-				//appending the picture, title and time to browser
+				// appending the picture, title and time to browser
 				recipeDiv.append(recipePicture, recipeTitle);
 				recipeDiv.addClass("panel-body recipe-card");
 				$("#recipe-view").append(recipeDiv);
 			};
 
-				$(".recipe-card").on("click", ".favorite-trigger", function() {
-					console.log("Shit was clicked");
-				var favLink = $(this)[0].attributes[4].nodeValue;
-					console.log(favLink);
-			});
+			// We were unable to get our favoriting functionaly working. 
+			// TODO: fix the ablity for a user to favorite a recipe, then show the button
+
+			// $(".recipe-card").on("click", ".favorite-trigger", function() {
+			// 	console.log("Shit was clicked");
+			// 	var favLink = $(this)[0].attributes[4].nodeValue;
+			// 	console.log(favLink);
+			// });
 		});
 	});
 });

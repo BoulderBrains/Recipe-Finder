@@ -6,10 +6,6 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
-	{{!-- TODO: NOT WORKING YET --}}
-	<!-- Custom Favicon -->
-	<link rel="shortcut icon" type="image/png" href="../public/assets/images/favicon.ico"/>
-
 	<!-- Google font link -->
 	<link href="https://fonts.googleapis.com/css?family=Metrophobic|Permanent+Marker" rel="stylesheet">
 
@@ -40,21 +36,23 @@
 			<input id="find-recipe" class="btn btn-login recipe-search-button" type="submit" value="Search For Recipes">
 		</form>
 
-		{{!-- TODO: This doesn't work yet
-		This will display the user's favorite recipe --}}
-		<div class="favorites">
-			<h1>Favorite recipe</h1>
+		<footer class="footer">
+    		<div class="container">
+       			<span class="text-muted">
+					{{#each users}}
+						<span class="text-left user-name-display">Hello {{ this.username }}!
+							{{#if favorited}}
+								<a class="favorite-recipe-link text-right" href="{{ this.favorited}}" target="_new">
+									Your Favorite Recipe
+								</a>
+							{{/if}}
+						</span>
+					{{/each}}
+				</span>
+			</div>
+    	</footer>
 
-			{{ this.users.username }}
-			{{ this.users.favorited }}
-
-			{{#each users}}
-				<h1>Username: {{ this.username }}</h1>
-				<h3>Favorite Recipe: {{ this.favorited }}</h3>
-			{{/each}}
-		</div>
-
-		<!-- We'll be dumping our JSON contents in here -->
+		<!-- We're dumping our JSON contents in here -->
 		<div id="recipe-view" class="col-sm-12 row"></div>
 
 		<!-- Jquery -->
