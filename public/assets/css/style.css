@@ -172,3 +172,12 @@ body {
     left: 0;
 }
 
+.footer {
+	position: absolute;
+    bottom: 0;
+	width: 100%;
+	left: 0;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+}

@@ -11,12 +11,12 @@
 
 </head>
 
-<nav class="navbar navbar-light bg-light">
+{{!-- <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">
     <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
     Username: {{ this.users.username }}
   </a>
-</nav>
+</nav> --}}
 
 <body>
 	<div class="container-fluid text-center">
@@ -43,17 +43,16 @@
 			<input id="find-recipe" class="btn btn-login recipe-search-button" type="submit" value="Search For Recipes">
 		</form>
 
-		<div class="favorites">
-			<h1>Favorite recipe</h1>
-
-			{{ this.users.username }}
-			{{ this.users.favorited }}
-
-			{{#each users}}
-				<h1>Username: {{ this.username }}</h1>
-				<h3>Favorite Recipe: {{ this.favorited }}</h3>
-			{{/each}}
-		</div>
+		<footer class="footer">
+    		<div class="container">
+       			<span class="text-muted">
+					{{#each users}}
+						<p class="user-name-display">Welcome Back: {{ this.username }}</h1>
+						<p class="favorite-recipe-display">Favorite Recipe: {{ this.favorited }}</h3>
+					{{/each}}
+				</span>
+			</div>
+    	</footer>
 
 		<!-- We'll be dumping our JSON contents in here -->
 		<div id="recipe-view" class="col-sm-12 row"></div>
