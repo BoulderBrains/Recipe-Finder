@@ -1,14 +1,23 @@
 {
-	"name": "recipe-finder",
-	"version": "1.0.0",
-	"description": "",
-	"main": "server.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node server.js",
-		"watch": "nodemon server.js"
-	},
-	"author": "",
-	"license": "ISC",
-	"dependencies": {}
+  "name": "Recipe-Finder",
+  "version": "1.0.0",
+  "description": "Recipe app example",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoulderBrains/Recipe-Finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoulderBrains/Recipe-Finder/issues"
+  },
+  "homepage": "https://github.com/BoulderBrains/Recipe-Finder#readme"
 }
