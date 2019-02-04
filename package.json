@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Recipe app example",
   "main": "server.js",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
