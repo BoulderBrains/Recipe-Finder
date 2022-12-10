@@ -4,7 +4,7 @@
   "description": "Recipe app example",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-handlebars": "^3.0.2",
     "method-override": "^3.0.0",
     "mysql": "^2.16.0"
